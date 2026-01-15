@@ -14,7 +14,10 @@ const ResultPage = () => {
           YOur Score is{" "}
           <span className="text-green-100 text-3xl font-semibold">{score}</span>
         </h2>
-        <button className="bg-green-400 text-white font-medium w-30 text-md  h-12 mt-4 text-center rounded">
+        <button
+          onClick={() => navigate("/")}
+          className="bg-green-400 text-white font-medium w-30 text-md  h-12 mt-4 text-center rounded"
+        >
           Restart Quiz
         </button>
       </div>
