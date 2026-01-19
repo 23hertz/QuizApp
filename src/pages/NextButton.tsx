@@ -8,13 +8,18 @@ const NextButton = ({ onNext, text, disabled = false }: Props) => {
   const isSubmit = text === "Submit";
   return (
     <button
-      className={`text-right p-2 
+      disabled={disabled}
+      className={`px-6 py-2 rounded-lg font-medium text-white transition-all duration-200 ease-out 
     ${
       isSubmit
-        ? "bg-green-600 hover:bg-green-700"
-        : "bg-blue-900 hover:bg-blue-800"
+        ? "bg-green-600 hover:bg-green-700 text-white hover:text-green-100"
+        : "bg-blue-900 hover:bg-blue-800 text-white hover:text-blue-100"
     }
-         ${disabled ? "opacity-50 cursor-not-allowed" : ""}
+         ${
+           disabled
+             ? "opacity-50 cursor-not-allowed hover:bg-inherit"
+             : ""
+         }
     `}
       onClick={onNext}
     >

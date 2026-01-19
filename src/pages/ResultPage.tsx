@@ -7,16 +7,18 @@ const ResultPage = () => {
   const { score = 0 } = location.state || {};
 
   return (
-    <section className="bg-blue-400 flex item-center justify-center   w-full h-screen">
-      <div className="bg-red-400 w-[40%] h-[40%] flex flex-col items-center justify-center  ">
-        <h1 className="font-bold text-4xl">Quiz Submitted</h1>
-        <h2>
-          YOur Score is{" "}
-          <span className="text-green-100 text-3xl font-semibold">{score}</span>
-        </h2>
+    <section className="min-h-screen flex items-center justify-center bg-slate-100 px-4  ">
+      <div className="bg-white w-full max-w-md rounded-xl shadow-lg flex flex-col items-center justify-center p-8 text-center">
+        <h1 className="font-bold text-3xl text-slate-800 mb-4">Quiz Submitted</h1>
+        <p className="text-lg text-slate-600 mb-6">
+          Your Score is{" "}
+          <span className="text-blue-600 text-3xl font-semibold">{score}</span>
+        </p>
         <button
           onClick={() => navigate("/")}
-          className="bg-green-400 text-white font-medium w-30 text-md  h-12 mt-4 text-center rounded"
+          className="px-6 py-2 rounded-lg font-medium text-white
+            bg-blue-600 hover:bg-blue-700 hover:text-blue-100
+            transition-all duration-200"
         >
           Restart Quiz
         </button>

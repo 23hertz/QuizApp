@@ -15,6 +15,8 @@ const DisplayQuestions = ({ qBanks }: Props) => {
   const navigate = useNavigate();
   let currentQuestion = qBanks[currentIndex];
   const isLastQuestion = currentIndex === qBanks.length - 1;
+  let totalQuestion = qBanks.length;
+  let getPercentage = ((currentIndex + 1) / totalQuestion) * 100;
 
   const handleNext = () => {
     if (!selectedAns) return;
@@ -37,32 +39,44 @@ const DisplayQuestions = ({ qBanks }: Props) => {
   };
 
   return (
-    <div className="bg-blue-300 w-full h-screen flex items-center justify-center">
-      <div className="bg-yellow-100 w-[40%] h-[40%] flex flex-col justify-between ">
-        <header className="flex flex-row justify-between align-center bg-green-400 p-2">
-          <div className="flex flex-row gap-4">
-            <h3>Score</h3>
-            <h2 className="text-xl font-bold">{score}</h2>
+    <div className="bg-slate-100 w-full min-h-screen flex items-center justify-center">
+      <div className="bg-white w-full max-w-lg mx-4 rounded-xl shadow-lg flex flex-col">
+        <header className="border-b align-center p-4">
+          <div className="">
+            <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+              <div
+                className="h-full  transition-all duration-300 ease-out bg-blue-600"
+                style={{ width: `${getPercentage}%` }}
+              />
+            </div>
           </div>
-          <h3 className="text-right">{currentQuestion.id}</h3>
+
+          <div className="flex flex-row justify-between gap-4 ">
+            <h3>
+              Score <span className="text-xl font-bold">{score}</span>
+            </h3>
+            <h3 className="text-right">{currentQuestion.id}/10</h3>
+          </div>
         </header>
-        <ul>
-          <li className="text-center text-xl p-2">
-            {currentQuestion.question}
-          </li>
+        <div>
+          <ul>
+            <li className="text-center text-lg font-semibold px-6 py-4">
+              {currentQuestion.question}
+            </li>
 
-          {currentQuestion.choices.map((choice: string, index: number) => (
-            <Choices
-              key={index}
-              index={index}
-              choice={choice}
-              selectedAns={selectedAns}
-              onSelect={setSelectedAns}
-            />
-          ))}
-        </ul>
+            {currentQuestion.choices.map((choice: string, index: number) => (
+              <Choices
+                key={index}
+                index={index}
+                choice={choice}
+                selectedAns={selectedAns}
+                onSelect={setSelectedAns}
+              />
+            ))}
+          </ul>
+        </div>
 
-        <footer className="text-right bg-blue-600 text-white">
+        <footer className="text-white border-b p-4 flex justify-end">
           <NextButton
             onNext={handleNext}
             text={isLastQuestion ? "Submit" : "Next"}
