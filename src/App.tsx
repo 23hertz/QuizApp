@@ -5,7 +5,7 @@ import Homepage from "./pages/Homepage";
 import DisplayQuestions from "./pages/DisplayQuestions";
 import ResultPage from "./pages/ResultPage";
 
-type questionBank = {
+type Question = {
   id: number;
   question: string;
   choices: string[];
@@ -13,7 +13,7 @@ type questionBank = {
 };
 
 function App() {
-  const questionBank =[
+  const questionBank:Question[] =[
     {
       id: 1,
       question:
