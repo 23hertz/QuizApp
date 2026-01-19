@@ -2,12 +2,13 @@ import { useState } from "react";
 import NextButton from "./NextButton";
 import Choices from "./Choices";
 import { useNavigate } from "react-router-dom";
+import type { Question } from "../types/question";
 
-type Props = {
-  qBanks: Question[];
-};
+ type Props = {
+   qBanks: Question[];
+ };
 
-const DisplayQuestions = ({ qBanks }: Props) => {
+const DisplayQuestions = ({ qBanks }:Props) => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [selectedAns, setSelectedAns] = useState<string | null>(null);
   const [score, setScore] = useState<number>(0);
@@ -67,7 +68,7 @@ const DisplayQuestions = ({ qBanks }: Props) => {
             {currentQuestion.choices.map((choice: string, index: number) => (
               <Choices
                 key={index}
-                index={index}
+                // index={index}
                 choice={choice}
                 selectedAns={selectedAns}
                 onSelect={setSelectedAns}

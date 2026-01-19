@@ -4,13 +4,13 @@ import { Routes, Route } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import DisplayQuestions from "./pages/DisplayQuestions";
 import ResultPage from "./pages/ResultPage";
-
-type Question = {
-  id: number;
-  question: string;
-  choices: string[];
-  correctAnswer: string;
-};
+import type { Question } from "./types/question";
+// type Question = {
+//   id: number;
+//   question: string;
+//   choices: string[];
+//   correctAnswer: string;
+// };
 
 function App() {
   const questionBank:Question[] =[
@@ -110,7 +110,11 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route
+        {/* <Route
+          path="/question"
+          element={<DisplayQuestions qBanks={questionBank} />}
+        /> */}
+             <Route
           path="/question"
           element={<DisplayQuestions qBanks={questionBank} />}
         />
