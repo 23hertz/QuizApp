@@ -1,11 +1,11 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import {  useState } from "react";
+
 import Homepage from "./pages/Homepage";
 import DisplayQuestions from "./pages/DisplayQuestions";
 import ResultPage from "./pages/ResultPage";
 
-type Question = {
+type questionBank = {
   id: number;
   question: string;
   choices: string[];
@@ -13,7 +13,7 @@ type Question = {
 };
 
 function App() {
-  const [questionBank, setQuestionBank] = useState<Question[]>([
+  const questionBank =[
     {
       id: 1,
       question:
@@ -102,10 +102,9 @@ function App() {
       question:
         "Which of the following HTML tag is used to create an unordered list?",
       choices: ["<ol>", "<ul>", "<li>", "<ll>"],
-
       correctAnswer: "<ul>",
     },
-  ]);
+  ];
 
   return (
     <div>
