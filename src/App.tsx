@@ -110,10 +110,7 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<Homepage />} />
-        {/* <Route
-          path="/question"
-          element={<DisplayQuestions qBanks={questionBank} />}
-        /> */}
+     
              <Route
           path="/question"
           element={<DisplayQuestions qBanks={questionBank} />}

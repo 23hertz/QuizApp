@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 const Homepage = () => {
+  
   return (
     <div className="min-h-screen flex justify-center items-center  bg-slate-100 px-4">
       <div className="bg-white w-full max-w-md rounded-xl flex flex-col shadow-lg p-8 text-center">
