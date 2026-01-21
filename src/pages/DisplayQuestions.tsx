@@ -74,14 +74,12 @@ const DisplayQuestions = ({ qBanks }:Props) => {
 
 
           <div className="flex flex-row justify-between gap-4 ">
-            {/* <h3>
-              Timer : <span className="text-xl font-bold">{minutes}:{seconds.toString().padStart(2, "0")}</span>
-            </h3> */}
+           
             <h3>
   ⏱{" "}
   <span
     className={`font-bold ${
-      isTimeLow ? "text-red-600 animate-pulse" : "text-slate-800"
+      isTimeLow ? "text-red-600 animate-pulse" : "text-green-700"
     }`}
   >
     {minutes}:{seconds.toString().padStart(2, "0")}
